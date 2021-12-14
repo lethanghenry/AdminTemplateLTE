@@ -1,6 +1,5 @@
 ﻿@using WebSiteBanHang.Models
 
-
 @model IEnumerable<WebSiteBanHang.Models.Product>
 @{
     ViewBag.Title = "ListProduct";
@@ -164,7 +163,6 @@
                 <h2><a style="color:black;" href="/CLient/ListProduct/">Home</a></h2>
             </div>
         </div>
-
         <div class="content row">
             <div class="contentleft col-md-9">
                 <div class="funcontentleft row ">
@@ -181,7 +179,6 @@
                                 countProduct2++;
                             }
                         }
-
                         <label>Showing @countProduct2 of @countProduct result </label>
                     </div>
                     <div class="col-md-5">
@@ -288,11 +285,9 @@
                 <div class="mt-5 row">
                     <strong>CATEGORIES:</strong>
                 </div>
-
                 @using (Html.BeginForm())
                 {
                     <div class="menu3 row">
-
                         <ul>
                             @foreach (var itemCate in liCategory)
                             {
@@ -308,11 +303,9 @@
                         </ul>
                     </div>
                 }
-
                 <div class="row">
                     <strong>BEST PRODUCTS</strong>
                 </div>
-
                 @foreach (var item in liMax)
                 {
                     <div class="row mt-5">
@@ -320,13 +313,11 @@
                             @{
                                 string ImagePath = "~/wwwroot/dataImage/" + item.pictureProduct;
                             }
-
                             <a href="#"><img src="@Url.Content(ImagePath)" class="img-fluid " /></a>
                         </div>
                         <div class="menuProductMax col-md-8  ">
                             <ul>
                                 <li><strong><u>@Html.ActionLink(item.nameProduct, "DetailProduct", new { id = item.idProduct }, new { @style = "text-decoration:none;color:black;" })t</u></strong></li>
-
                                 <li>
                                     @for (int i = 0; i < item.rateProduct; i++)
                                     {
@@ -336,14 +327,12 @@
                                     {
                                         <img src="https://png.pngtree.com/element_our/png_detail/20181227/star-line-black-icon-png_287224.jpg" width="20px;" alt="Star Line Black Icon, Star Icons, Line Icons, Black Icons PNG and Vector  with Transparent Background for Free Download" />
                                     }
-
                                 </li>
                                 <li>
                                     <strong>$@item.priceProduct</strong>
                                 </li>
                             </ul>
                         </div>
-
                     </div>
                 }
 
@@ -353,7 +342,6 @@
                 <div class="picturebanner row mt-5">
                     <img src="https://trackstore.qodeinteractive.com/wp-content/uploads/2017/10/shop-sidebar-banner-img.jpg" class="img-fluid" />
                 </div>
-
             </div>
         </div>
     </div>

@@ -16,15 +16,19 @@ namespace WebSiteBanHang.Models
         }
 
         [Key]
+        [Required]
         [StringLength(20)]
         public string idUser { get; set; }
 
+        [Required]
         [StringLength(2000)]
         public string reviewUser { get; set; }
 
+        [Required]
         [StringLength(20)]
         public string nameUser { get; set; }
 
+        [Required]
         [StringLength(20)]
         public string emailUser { get; set; }
 

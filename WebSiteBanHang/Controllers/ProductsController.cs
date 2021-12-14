@@ -33,7 +33,7 @@ namespace WebSiteBanHang.Controllers
         /// </summary>
         /// <param name="searchNameProduct"></param>
         /// <returns></returns>
-        public ActionResult search(string searchNameProduct)
+        public ActionResult search(string searchNameProduct,string searchIdProduct,string searchPriceProduct,string searchRateProduct, int? SearchFollow)
         {
             var products = from m in db.Products select m;
             if (!String.IsNullOrEmpty(searchNameProduct))
@@ -42,6 +42,23 @@ namespace WebSiteBanHang.Controllers
             }
             ViewBag.search = searchNameProduct;
 
+            if (!String.IsNullOrEmpty(searchIdProduct))
+            {
+                products = products.Where(s => s.idProduct.Contains(searchIdProduct));
+            }
+            ViewBag.searchId = searchIdProduct;
+
+            if (!String.IsNullOrEmpty(searchPriceProduct))
+            {
+                products = products.Where(s => s.priceProduct.ToString().Contains(searchPriceProduct));
+            }
+            ViewBag.searchPrice = searchPriceProduct;
+
+            if (!String.IsNullOrEmpty(searchRateProduct))
+            {
+                products = products.Where(s => s.rateProduct.ToString().Contains(searchRateProduct));
+            }
+            ViewBag.searchRate= searchRateProduct;
             return View(products);
         }
 
@@ -67,20 +84,20 @@ namespace WebSiteBanHang.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( Product product)
+        public ActionResult Create(Product product)
         {
             if (ModelState.IsValid)
             {
                 product.pictureProduct = "";
                 var f = Request.Files["ImageFile"];
-                if(f!=null&&f.ContentLength>0)
+                if (f != null && f.ContentLength > 0)
                 {
                     string FileName = System.IO.Path.GetFileName(f.FileName);
-                    string UploadPath = Server.MapPath("~/wwwroot/dataImage/"+FileName);
+                    string UploadPath = Server.MapPath("~/wwwroot/dataImage/" + FileName);
                     f.SaveAs(UploadPath);
                     product.pictureProduct = FileName;
-                    
-                }    
+
+                }
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -152,7 +169,7 @@ namespace WebSiteBanHang.Controllers
         /// <returns></returns>
         public ActionResult Delete2(string id)
         {
-            Product product = db.Products.Find(id);           
+            Product product = db.Products.Find(id);
             db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -3,7 +3,6 @@
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
 }
 
 @using (Html.BeginForm("Create", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -13,7 +12,6 @@
         <div class="card  mt-4 ml-2 mr-2">
             <div class="card-header">
                 <h3 class="card-title">Create Product</h3>
-
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
                         <i class="fas fa-minus"></i>
@@ -24,8 +22,6 @@
                 </div>
             </div>
             <div class="card-body">
-
-               
                 <div class="form-horizontal">
                     <div class="row">
                         <div class="col-md-6">
@@ -45,7 +41,6 @@
                                     <input name="ImageFile" id="ufile" type="file" style="display:none;" value="ImageFile" onchange="loadFile(event)" />
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 @Html.Label("price", htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-12">
@@ -53,7 +48,6 @@
                                     @Html.ValidationMessageFor(model => model.priceProduct, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 @Html.Label("weight", htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-12">
@@ -61,7 +55,6 @@
                                     @Html.ValidationMessageFor(model => model.weightProduct, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 @Html.Label("id Category", htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-12">
@@ -69,9 +62,6 @@
                                     @Html.ValidationMessageFor(model => model.idCategory, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-
-
-
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
@@ -81,11 +71,9 @@
                                     @Html.ValidationMessageFor(model => model.nameProduct, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 @Html.Label("rate", htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-12 mb-5">
-
                                     @Html.RadioButtonFor(model => model.rateProduct, "1")
                                     1 star
                                     @Html.RadioButtonFor(model => model.rateProduct, "2")
@@ -94,11 +82,10 @@
                                     3 stars
                                     @Html.RadioButtonFor(model => model.rateProduct, "4")
                                     4 stars
-                                    @Html.RadioButtonFor(model => model.rateProduct, "5")
+                                    @Html.RadioButtonFor(model => model.rateProduct, "5", new { @checked = "true" })
                                     5 stars
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 @Html.Label("quality ", htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-12">
@@ -106,7 +93,6 @@
                                     @Html.ValidationMessageFor(model => model.qualityProduct, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 @Html.Label("dismension", htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-12">
@@ -114,7 +100,6 @@
                                     @Html.ValidationMessageFor(model => model.dismensionProduct, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 @Html.Label("id User", htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-12">
@@ -130,7 +115,6 @@
                                 @Html.ValidationMessageFor(model => model.descriptionProduct, "", new { @class = "text-danger" })
                             </div>
                         </div>
-
                         <div class="form-group">
                             <div class="d-flex justify-content-center align-items-center">
                                 <input type="submit" value="Create" class="btn btn-success" />
@@ -139,8 +123,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 }

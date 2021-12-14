@@ -16,9 +16,11 @@ namespace WebSiteBanHang.Models
         }
 
         [Key]
+        [Required]
         [StringLength(20)]
         public string idCategory { get; set; }
 
+        [Required]
         [StringLength(20)]
         public string nameCategory { get; set; }
 

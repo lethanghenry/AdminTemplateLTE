@@ -50,8 +50,6 @@
         -webkit-transition: all 0.15s ease-in-out;
         -moz-transition: all 0.15s ease-in-out;
         -o-transition: all 0.15s ease-in-out;
-        /* -ms-transition: all 0.15s ease-in-out;*/
-
         transition: all 0.15s ease-in-out;
     }
 
@@ -139,9 +137,7 @@
             </div>
             <div class="col-md-5 text-right p-0">
                 <h4>
-                    Home/
-                    <a style="color:black;" href="/Client/ListProduct">Shop</a>
-                    /
+                    Home/<a style="color:black;" href="/Client/ListProduct">Shop</a>/
                     <a style="color:black;" href="/Client/ListProduct?searchCate=@Model.Category.nameCategory">@Model.Category.nameCategory</a>
                     /@Model.nameProduct
                 </h4>
@@ -320,7 +316,6 @@
                                                 <div class="blur"></div>
                                                 <div class="caption-text row text-center p-5">
                                                     <img class="col-md-3 img-fluid" src="https://banner2.cleanpng.com/20180329/soe/kisspng-shopping-cart-computer-icons-online-shopping-shopping-cart-5abcc5a2ec2168.4054516615223208029672.jpg" alt="Giỏ hàng" />
-
                                                     <p class="col-md-9"><b>ADD TO CARD</b></p>
                                                 </div>
                                             </div>
@@ -330,7 +325,6 @@
                                                 <label>
                                                     @Html.ActionLink(item.nameProduct, "DetailProduct", new { id = item.idProduct }, new { @style = "text-decoration:none;color:black;" })
                                                 </label>
-
                                             </div>
                                             <div class="col-md-5 text-right row">
                                                 <img class="col-md-8" src="https://kenh14cdn.com/203336854389633024/2021/3/7/1-16150665630681271218913.jpg" alt="Dùng" />
